@@ -1,0 +1,23 @@
+clc;
+clear all;
+close all;
+x1=[1 1 1 1]
+n1=length(x1)
+len=(2^n1) - 1
+p1(1,1)=x1(1,1);
+disp(p1)
+z1=x1
+for y1= 2:len
+x1=z1;
+for i = 1 : n1
+if i ==1
+z1(1,i) = xor(x1(1,1), x1(1,4));
+else
+z1(1,i) = x1(1, i-1);
+end
+end
+p1(1,y1)=z1(1,4);
+end
+subplot 211;
+disp(p1);
+stem(p1);
