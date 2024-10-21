@@ -1,24 +1,38 @@
-clc; 
-clear all; 
-close all;
-Radius=1.56; 
-N=4;
-total_ch=80;
-A=15.25; %From Erlang C system chart Au=0.029;
-lambda=1; 
-prob=0.05;
+clc;
 
-disp('1. User per square kilometer') 
-disp('Number of channel per cell') 
-chno= total_ch/N;
-x=sqrt(3); 
-cell_a=((3*x)/2)*Radius *Radius 
-user_in_cell=A/Au 
-user_per_cell=user_in_cell/cell_a
-disp('2. Probability for delay call will have to for more than given sec') 
-time=input('Enter the time ')
-t=time/3600; 
-H=Au/lambda;
-Pr =exp(-(chno-A)*(t/H))
-disp('3. Probability in percentage for delay call will be delayed for more than given sec') 
-Probability =(prob* Pr)*100
+close all;
+clear all;
+r = 1.56;
+N = 4;
+ch = 80;
+lambda = 1;
+prob = 0.05;
+Au = 0.029;
+A = 13;
+
+t = input('enter the value of time:');
+
+fprintf('No. of channels/cell:');
+chpercell = ch / N;
+
+disp(chpercell)
+
+fprintf('Cell Area:');
+cellarea = (sqrt(3) * 3 * r * r) / 2;
+disp(cellarea)
+
+fprintf('No. of users in a cell, U:');
+U = A / Au;
+
+disp(U)
+H = Au * 3600 / lambda;
+
+disp(H)
+fprintf('(Pr delay>t / (Pr delay>0)):');
+Prdelay = (exp(-(chpercell - A) * t / H));
+disp(Prdelay)
+fprintf('Pr(delay>t):');
+Prdelayt = 0.05 * Prdelay;
+disp(Prdelay)
+
+fprintf('Pr delay in percentage:');
