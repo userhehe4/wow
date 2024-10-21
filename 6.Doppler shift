@@ -1,0 +1,13 @@
+clc;
+clear all;
+close all;
+fc = 900000000;
+v = 175/9;
+lambda = 0.33;
+angle = input('enter the input angle');
+fd = (v/lambda)*cos(angle);
+disp(d);
+fcnew = fc + fd;
+disp(fcnew)
+x = rat(fcnew);
+disp(x)
