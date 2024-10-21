@@ -1,0 +1,30 @@
+clc;
+close all;
+clear all;
+Hn = [1];
+Hnt = not(Hn);
+H1n = [Hn Hn; Hn Hnt];
+H1nt = not(H1n);
+H2n = [H1n H1n; H1n H1nt];
+H2nt = not(H2n);
+H3n = [H2n H2n; H2n H2nt];
+disp(H3n);
+
+a_c = 0;
+d_c = 0;
+for i = 1:8
+    j = 1;
+    if H3n(i,j) == H3n(i,j+1)
+        a_c = a_c + 1;
+    else
+        d_c = d_c + 1;
+    end
+end
+disp('Number of agreement bits:');
+disp(a_c);
+disp('Number of disagreement bits:');
+disp(d_c);
+h = (a_c - d_c) / 8;
+disp('Checking orthogonality');
+disp(h);
+disp('Hence orthogonality is proved at two rows');
