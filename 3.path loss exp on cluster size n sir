@@ -38,6 +38,6 @@ for i = 1:1:15
        break;
    end
 end
-end
+
 
 fprintf('After verification value of N=%d', N);
