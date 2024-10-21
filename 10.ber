@@ -1,0 +1,18 @@
+clc;
+clear all;
+close all;
+L = 3;
+N = 256;
+SNR = 0:25;
+y = db2pow(SNR);
+a = nchoosek(5,3);
+b = 2*N*y;
+BER1 = a*((1./b).^2);
+L = 4;
+a = nchoosek(7,4);
+b = 2*N*y;
+BER2 = a*((1./b).^2);
+y = 0:2:25;
+p = plot(SNR,BER1,SNR,BER2,'--');
+xlabel('SNR(dB)');
+ylabel('Bit Error Rate');
