@@ -1,0 +1,15 @@
+clc;
+clear all ; 
+close all;
+fc1=input('Enter the frequency fc1:'); 
+fc2=input('Enter the frequency fc2:'); 
+ht =100;
+hr=4; 
+r=2:25;
+alphar=3.2*((log10(11.75)*hr)^2)-4.97
+Lph1= 68.75+26.16*log10(fc1)-13.82*log10(ht)-alphar+(44.9-6.55*log10(ht))*log10(r) 
+Lph2= 68.75+26.16*log10(fc2)-13.82*log10(ht)-alphar+(44.9-6.55*log10(ht))*log10(r) 
+p=plot(r,Lph1,r,Lph2);
+ylabel('Lph(db)');
+xlabel('Distance(Km)');
+title('Propagation Path Loss using Hata Model') 
