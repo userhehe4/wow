@@ -1,0 +1,24 @@
+clc; 
+clear all; 
+close all;
+Radius=1.56; 
+N=4;
+total_ch=80;
+A=15.25; %From Erlang C system chart Au=0.029;
+lambda=1; 
+prob=0.05;
+
+disp('1. User per square kilometer') 
+disp('Number of channel per cell') 
+chno= total_ch/N;
+x=sqrt(3); 
+cell_a=((3*x)/2)*Radius *Radius 
+user_in_cell=A/Au 
+user_per_cell=user_in_cell/cell_a
+disp('2. Probability for delay call will have to for more than given sec') 
+time=input('Enter the time ')
+t=time/3600; 
+H=Au/lambda;
+Pr =exp(-(chno-A)*(t/H))
+disp('3. Probability in percentage for delay call will be delayed for more than given sec') 
+Probability =(prob* Pr)*100
