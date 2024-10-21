@@ -1,0 +1,47 @@
+clc
+clear all;
+close all;
+u1 = input('Enter Polar Form of User Data 1 : '); 
+u2 = input('Enter Polar Form of User Data 2 : '); 
+pn1 = input('Enter Polar Form of PN1 : ');
+pn2 = input('Enter Polar Form of PN2: '); 
+disp('multiplication of user data and pn sequence') 
+pn11 = u1(1) * pn1;
+pn12 = u1(2) * pn1; 
+pn13 = u1(3) * pn1; 
+pn14 = u1(4) * pn1; 
+disp([pn11 pn12 pn13]) 
+pn21 = u2(1) * pn2; 
+pn22 = u2(2) * pn2; 
+pn23 = u2(3) * pn2; 
+pn24 = u2(4) * pn2; 
+disp([pn21 pn22 pn23])
+disp('then add the new user1 and user2 bits') 
+a= pn11 + pn21 ;
+b= pn12 + pn22 ; 
+c= pn13 + pn23 ; 
+d= pn14 + pn24 ; 
+disp('for first user') 
+R1_1 = a .* pn1 ; 
+R1_2 = b .* pn1 ; 
+R1_3 = c .* pn1 ; 
+R1_4 = d .* pn1 ;
+disp([R1_1 R1_2 R1_3 R1_4]) 
+disp('for second user')
+R2_1 = a .* pn2 ; 
+R2_2 = b .* pn2 ; 
+R2_3 = c .* pn2 ; 
+R2_4 = d .* pn2 ;
+disp([R2_1 R2_2 R2_3 R2_4]) 
+disp('final answer for user1') 
+F1_1 = sum(R1_1)/4;
+F1_2 = sum(R1_2)/4; 
+F1_3 = sum(R1_3)/4; 
+F1_4 = sum(R1_4)/4;
+disp([F1_1 F1_2 F1_3 F1_4]);
+disp('final answer for user2') 
+F2_1 = sum(R2_1)/4;
+F2_2 = sum(R2_2)/4; 
+F2_3 = sum(R2_3)/4; 
+F2_4 = sum(R2_4)/4;
+disp([F2_1 F2_2 F2_3 F2_4]);
