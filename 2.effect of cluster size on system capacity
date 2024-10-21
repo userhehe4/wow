@@ -1,24 +1,23 @@
-clc; 
-clear all; 
+clc;
+clear all;
 close all;
-total_bandwidth = 40e6;
-channel_bandwidth = 30e3; 
-cell_radius = 2;
-area_circle = 270;
-cluster_size = input('num_cluster :');
-
-num_channels =round(total_bandwidth / (2*channel_bandwidth)); 
-area_hex = round(3 * sqrt(3) / 2 * cell_radius^2 );
-num_cells = round( area_circle / area_hex);
-
-disp(['Number of channels per cell: ' num2str(num_channels)]); 
-disp(['Number of cells in the system: ' num2str(num_cells)]); 
-disp(' ');
-
-cluster_sizes = [cluster_size]; 
-for i = 1:length(cluster_sizes)
-  K = cluster_sizes(i); 
-  cluster_repetition = num_cells / K;
-  system_capacity(i) = num_channels * cluster_repetition;
-  disp(['System capacity for cluster size ' num2str(K) ': ' num2str(system_capacity(i)) ' channels']);
-End
+f=input('enter the freq:');
+a=input('enter the area:');
+bw=input('enter the bw:');
+r=input('enter the radius:');
+N=input('enter the cluster size:');
+s=round(([f*1000])/(2*bw));
+fprintf('No. of channels,s:');
+disp(s)
+cellarea=(sqrt(3)*3*r^2)/2;
+fprintf('cell area:');
+disp(cellarea)
+totalcells=round(a/cellarea);
+fprintf('Total no. of cells:');
+disp(totalcells)
+m=round(totalcells/N);
+fprintf('M:');
+disp(m)
+systemcapacity=m*s;
+fprintf('System Capacity:');
+disp(systemcapacity)
