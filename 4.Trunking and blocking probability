@@ -36,3 +36,5 @@ Prdelayt = 0.05 * Prdelay;
 disp(Prdelay)
 
 fprintf('Pr delay in percentage:');
+PrdelayP = Prdelayt*100;
+disp(PrdelayP)
